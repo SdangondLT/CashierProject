@@ -7,10 +7,10 @@ namespace cashierProject
     {
         static void Main(string[] args)
         {
-            List<Customer> ListUsers = FillCustomer();
+            List<Customer> listUsers = FillCustomer();
             do
             {
-                Customer UserLogged = Login(ListUsers);
+                Customer UserLogged = Login(listUsers);
                 Menu(UserLogged);
 
             } while (true);
@@ -18,53 +18,63 @@ namespace cashierProject
 
         static List<Customer> FillCustomer()
         {
-            List<Customer> ListUsers = new List<Customer>();
+            List<Customer> listUsers = new List<Customer>();
             
-            Customer UserOne = new Customer("person1", "0000", 800);
-            Customer UserTwo = new Customer("person2", "0000", 700);
-            Customer UserThree = new Customer("person3", "0000", 600);
-            Customer UserFour = new Customer("person4", "0000", 500);
-            Customer UserFive = new Customer("person5", "0000", 400);
-            Customer UserSix = new Customer("person6", "0000", 300);
+            Customer userOne = new Customer("davis", "0000", 5800);
+            Customer userTwo = new Customer("paulina", "0000", 6700);
+            Customer userThree = new Customer("silena", "0000", 5600);
+            Customer userFour = new Customer("sebastian", "0000", 4500);
+            Customer userFive = new Customer("dolcey", "0000", 1400);
+            Customer userSix = new Customer("jhonny", "0000", 1900);
+            Customer userSeven = new Customer("mariana", "0000", 8800);
+            Customer userEight = new Customer("santiago", "0000", 3800);
+            Customer userNine = new Customer("dayana", "0000", 6800);
+            Customer userTen = new Customer("roberto", "0000", 2800);
+            Customer userEleven = new Customer("isabela", "0000", 1800);
 
-            ListUsers.Add(UserOne);
-            ListUsers.Add(UserTwo);
-            ListUsers.Add(UserThree);
-            ListUsers.Add(UserFour);
-            ListUsers.Add(UserFive);
-            ListUsers.Add(UserSix);
+            listUsers.Add(userOne);
+            listUsers.Add(userTwo);
+            listUsers.Add(userThree);
+            listUsers.Add(userFour);
+            listUsers.Add(userFive);
+            listUsers.Add(userSix);
+            listUsers.Add(userSeven);
+            listUsers.Add(userEight);
+            listUsers.Add(userNine);
+            listUsers.Add(userTen);
+            listUsers.Add(userEleven);
 
-            return ListUsers;
+            return listUsers;
             
         }
 
-        static Customer Login(List<Customer> ListUsers)
+        static Customer Login(List<Customer> listUsers)
         {
-            Console.WriteLine("Por favor ingrese su username: ");
-            string UserName = Console.ReadLine();
-            bool ExistsUserName = ListUsers.Exists(item => item.CheckUserName() == UserName);
+            Console.Write("Por favor ingrese su usuario: ");
+            string userName = Console.ReadLine();
+            bool existsUserName = listUsers.Exists(item => item.CheckUserName() == userName);
 
-            if (ExistsUserName == true)
+            if (existsUserName == true)
             {
-                Console.WriteLine("Por favor ingrese su password: ");
-                string Password = Console.ReadLine();
-                bool CorrectPassword = ListUsers.Exists(item => item.CheckPassword() == Password && item.CheckUserName() == UserName);
-                if (CorrectPassword == true)
+                Console.Write("Por favor ingrese su clave: ");
+                string password = Console.ReadLine();
+                bool correctPassword = listUsers.Exists(item => item.CheckPassword() == password && item.CheckUserName() == userName);
+                if (correctPassword == true)
                 {
-                    Customer Customer = ListUsers.Find(item => item.CheckUserName() == UserName);
+                    Customer customer = listUsers.Find(item => item.CheckUserName() == userName);
 
-                    if (Password == "0000")
+                    if (password == "0000")
                     {
-                        Console.WriteLine("Por favor ingrese su nuevo password: ");
-                        string NewPassword = Console.ReadLine();
-                        
-                        Customer.ChangePassword(NewPassword);
-                        Console.WriteLine("Su contraseña ha sido cambiada exitosamente");
-                        return Customer;
+                        Console.Write("Por favor ingrese su nueva clave: ");
+                        string newPassword = Console.ReadLine();
+
+                        customer.ChangePassword(newPassword);
+                        Console.WriteLine("Su clave ha sido cambiada exitosamente");
+                        return customer;
 
                     }
 
-                    return Customer;
+                    return customer;
 
                 }
 
@@ -73,7 +83,7 @@ namespace cashierProject
 
             } else
             {
-                Console.WriteLine($"El usuario {UserName} no se encuentra registrado en el sistema");
+                Console.WriteLine($"El usuario {userName} no se encuentra registrado en el sistema");
                 return null;
             }
         }
@@ -82,7 +92,7 @@ namespace cashierProject
         {
             if (UserLogged != null)
             {
-                string OptionSelected;
+                string optionSelected = String.Empty;
 
                 do
                 {
@@ -92,37 +102,37 @@ namespace cashierProject
                     Console.WriteLine("3. Depositar Dinero");
                     Console.WriteLine("4. Cambiar Contraseña ");
                     Console.WriteLine("5. Cerrar Sesión");
-                    Console.WriteLine("Seleccione la opción deseada: ");
-                    OptionSelected = Console.ReadLine();
+                    Console.Write("Seleccione la opción deseada: ");
+                    optionSelected = Console.ReadLine();
 
-                    switch (OptionSelected)
+                    switch (optionSelected)
                     {
                         case "1":
                             Console.WriteLine($"Su saldo actual es: {UserLogged.CheckMoney()}");
                             break;
                         case "2":
                             Console.WriteLine($"Cuanto dinero desea retirar: ");
-                            string MoneyToWithdrawn = Console.ReadLine();
-                            UserLogged.RemoveMoney(Convert.ToDecimal(MoneyToWithdrawn));
+                            string moneyToWithdrawn = Console.ReadLine();
+                            UserLogged.RemoveMoney(Convert.ToDecimal(moneyToWithdrawn));
                             Console.WriteLine("Por favor retire su dinero");
                             break;
                         case "3":
                             Console.WriteLine($"Cuanto dinero desea depositar: ");
-                            string MoneyToConsign = Console.ReadLine();
-                            UserLogged.AddMoney(Convert.ToDecimal(MoneyToConsign));
+                            string moneyToConsign = Console.ReadLine();
+                            UserLogged.AddMoney(Convert.ToDecimal(moneyToConsign));
                             Console.WriteLine("Su dinero ha sido consignado");
                             break;
                         case "4":
                             Console.WriteLine($"Ingrese su nueva contraseña: ");
-                            string NewPassword = Console.ReadLine();
-                            UserLogged.ChangePassword(NewPassword);
+                            string newPassword = Console.ReadLine();
+                            UserLogged.ChangePassword(newPassword);
                             Console.WriteLine("Su contraseña ha sido actualizada");
                             break;
                         case "5":
                             Console.WriteLine($" Su sesión ha terminado ");
                             break;
                     }
-                } while (OptionSelected != "5");
+                } while (optionSelected != "5");
             }
         }
     }

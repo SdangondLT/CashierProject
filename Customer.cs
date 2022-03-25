@@ -8,39 +8,45 @@ namespace cashierProject
 {
     internal class Customer
     {
-        private string UserName { get; set; }
-        private string Password { get; set; }
-        private decimal CurrentMoney { get; set; }
-        public Customer(string UserName, string Password, decimal CurrentMoney)
+        private string userName { get; set; }
+        private string password { get; set; }
+        private decimal currentMoney { get; set; }
+
+        public Customer(string userName, string password, decimal currentMoney)
         {
-            this.UserName = UserName;
-            this.Password = Password;
-            this.CurrentMoney = CurrentMoney;
+            this.userName = userName;
+            this.password = password;
+            this.currentMoney = currentMoney;
         }
 
-        public void ChangePassword(string NewPassword)
+        public void ChangePassword(string newPassword)
         {
-            this.Password = NewPassword;
+            this.password = newPassword;
         }
+
         public decimal CheckMoney()
         {
-            return CurrentMoney;
+            return currentMoney;
         }
+
         public string CheckUserName()
         {
-            return UserName;
+            return userName;
         }
+
         public string CheckPassword()
         {
-            return Password;
+            return password;
         }
-        public void AddMoney(decimal AddedMoney)
+
+        public void AddMoney(decimal addedMoney)
         {
-            this.CurrentMoney = this.CurrentMoney + AddedMoney;
+            this.currentMoney = this.currentMoney + addedMoney;
         }
-        public void RemoveMoney(decimal MoneyWithdrawn)
+
+        public void RemoveMoney(decimal moneyWithdrawn)
         {
-            this.CurrentMoney = this.CurrentMoney - MoneyWithdrawn;
+            this.currentMoney = this.currentMoney - moneyWithdrawn;
         }
     }
 }
