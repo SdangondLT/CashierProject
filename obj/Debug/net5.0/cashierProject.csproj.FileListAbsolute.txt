@@ -1,0 +1,16 @@
+C:\silena_dangond\backEnd\stage1BE\week1\cashierProject\bin\Debug\net5.0\cashierProject.exe
+C:\silena_dangond\backEnd\stage1BE\week1\cashierProject\bin\Debug\net5.0\cashierProject.deps.json
+C:\silena_dangond\backEnd\stage1BE\week1\cashierProject\bin\Debug\net5.0\cashierProject.runtimeconfig.json
+C:\silena_dangond\backEnd\stage1BE\week1\cashierProject\bin\Debug\net5.0\cashierProject.runtimeconfig.dev.json
+C:\silena_dangond\backEnd\stage1BE\week1\cashierProject\bin\Debug\net5.0\cashierProject.dll
+C:\silena_dangond\backEnd\stage1BE\week1\cashierProject\bin\Debug\net5.0\cashierProject.pdb
+C:\silena_dangond\backEnd\stage1BE\week1\cashierProject\obj\Debug\net5.0\cashierProject.csproj.AssemblyReference.cache
+C:\silena_dangond\backEnd\stage1BE\week1\cashierProject\obj\Debug\net5.0\cashierProject.GeneratedMSBuildEditorConfig.editorconfig
+C:\silena_dangond\backEnd\stage1BE\week1\cashierProject\obj\Debug\net5.0\cashierProject.AssemblyInfoInputs.cache
+C:\silena_dangond\backEnd\stage1BE\week1\cashierProject\obj\Debug\net5.0\cashierProject.AssemblyInfo.cs
+C:\silena_dangond\backEnd\stage1BE\week1\cashierProject\obj\Debug\net5.0\cashierProject.csproj.CoreCompileInputs.cache
+C:\silena_dangond\backEnd\stage1BE\week1\cashierProject\obj\Debug\net5.0\cashierProject.dll
+C:\silena_dangond\backEnd\stage1BE\week1\cashierProject\obj\Debug\net5.0\refint\cashierProject.dll
+C:\silena_dangond\backEnd\stage1BE\week1\cashierProject\obj\Debug\net5.0\cashierProject.pdb
+C:\silena_dangond\backEnd\stage1BE\week1\cashierProject\obj\Debug\net5.0\cashierProject.genruntimeconfig.cache
+C:\silena_dangond\backEnd\stage1BE\week1\cashierProject\obj\Debug\net5.0\ref\cashierProject.dll
