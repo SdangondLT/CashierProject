@@ -7,30 +7,36 @@ namespace cashierProject
     {
         static void Main(string[] args)
         {
-            List<Customer> listUsers = FillCustomer();
-            do
-            {
-                Customer UserLogged = Login(listUsers);
-                Menu(UserLogged);
-
-            } while (true);
+            ATM atm = ATMBankTech();
+            atm.Menu();
         }
 
-        static List<Customer> FillCustomer()
+        static Bank BankTech()
         {
-            List<Customer> listUsers = new List<Customer>();
-            
-            Customer userOne = new Customer("davis", "0000", 5800);
-            Customer userTwo = new Customer("paulina", "0000", 6700);
-            Customer userThree = new Customer("silena", "0000", 5600);
-            Customer userFour = new Customer("sebastian", "0000", 4500);
-            Customer userFive = new Customer("dolcey", "0000", 1400);
-            Customer userSix = new Customer("jhonny", "0000", 1900);
-            Customer userSeven = new Customer("mariana", "0000", 8800);
-            Customer userEight = new Customer("santiago", "0000", 3800);
-            Customer userNine = new Customer("dayana", "0000", 6800);
-            Customer userTen = new Customer("roberto", "0000", 2800);
-            Customer userEleven = new Customer("isabela", "0000", 1800);
+            Bank banktech = new Bank(10, "Bank Tech", AccountOfUsers(), FillUsers());
+            return banktech;
+        }
+        //public ATM(int idATM, string descriptionATM, string status, Bank bank)
+        static ATM ATMBankTech()
+        {
+            ATM ATMBankTech = new ATM(45, "Cajero 24 horas de Bank Tech", "active", BankTech());
+            return ATMBankTech;
+        }
+        static List<User> FillUsers()
+        {
+            List<User> listUsers = new List<User>();
+
+            User userOne = new User(1,"davis", "carrera 15 # 89-65", "0000", "active");
+            User userTwo = new User(2, "paulina", "carrera 15 # 89-65", "0000", "active");
+            User userThree = new User(3, "silena", "carrera 15 # 89-65", "0000", "active");
+            User userFour = new User(4, "sebastian", "carrera 15 # 89-65", "0000", "active");
+            User userFive = new User(5, "dolcey", "carrera 15 # 89-65", "0000", "inactive");
+            User userSix = new User(6, "jhonny", "carrera 15 # 89-65", "0000", "inactive");
+            User userSeven = new User(7, "mariana", "carrera 15 # 89-65", "0000", "inactive");
+            User userEight = new User(8, "santiago", "carrera 15 # 89-65", "0000", "active");
+            User userNine = new User(9, "dayana", "carrera 15 # 89-65", "0000", "active");
+            User userTen = new User(10, "roberto", "carrera 15 # 89-65", "0000", "inactive");
+            User userEleven = new User(11, "isabela", "carrera 15 # 89-65", "0000", "inactive");
 
             listUsers.Add(userOne);
             listUsers.Add(userTwo);
@@ -45,95 +51,38 @@ namespace cashierProject
             listUsers.Add(userEleven);
 
             return listUsers;
-            
+
         }
-
-        static Customer Login(List<Customer> listUsers)
+        static List<Account> AccountOfUsers()
         {
-            Console.Write("Por favor ingrese su usuario: ");
-            string userName = Console.ReadLine();
-            bool existsUserName = listUsers.Exists(item => item.CheckUserName() == userName);
+            List<Account> listAccount = new List<Account>();
 
-            if (existsUserName == true)
-            {
-                Console.Write("Por favor ingrese su clave: ");
-                string password = Console.ReadLine();
-                bool correctPassword = listUsers.Exists(item => item.CheckPassword() == password && item.CheckUserName() == userName);
-                if (correctPassword == true)
-                {
-                    Customer customer = listUsers.Find(item => item.CheckUserName() == userName);
+            Account accountOne = new Account(1234, "current", "active", 4005, 1);
+            Account accountTwo = new Account(5678, "savings", "active", 2505, 2);
+            Account accountThree = new Account(9874, "savings", "inactive", 8005, 3);
+            Account accountFour = new Account(5632, "savings", "active", 7005, 4);
+            Account accountFive = new Account(1597, "savings", "active", 1000, 5);
+            Account accountSix = new Account(7532, "current", "active", 8575, 6);
+            Account accountSeven = new Account(9654, "current", "inactive", 4685, 7);
+            Account accountEight = new Account(8541, "current", "inactive", 9875, 8);
+            Account accountNine = new Account(9654, "savings", "active", 7455, 9);
+            Account accountTen = new Account(7863, "savings", "active", 6785, 10);
+            Account accountEleven = new Account(8523, "savings", "active", 4877, 11);
 
-                    if (password == "0000")
-                    {
-                        Console.Write("Por favor ingrese su nueva clave: ");
-                        string newPassword = Console.ReadLine();
+            listAccount.Add(accountOne);
+            listAccount.Add(accountTwo);
+            listAccount.Add(accountThree);
+            listAccount.Add(accountFour);
+            listAccount.Add(accountFive);
+            listAccount.Add(accountSix);
+            listAccount.Add(accountSeven);
+            listAccount.Add(accountEight);
+            listAccount.Add(accountNine);
+            listAccount.Add(accountTen);
+            listAccount.Add(accountEleven);
 
-                        customer.ChangePassword(newPassword);
-                        Console.WriteLine("Su clave ha sido cambiada exitosamente");
-                        return customer;
+            return listAccount;
 
-                    }
-
-                    return customer;
-
-                }
-
-                Console.WriteLine($"El password no es correcto");
-                return null;
-
-            } else
-            {
-                Console.WriteLine($"El usuario {userName} no se encuentra registrado en el sistema");
-                return null;
-            }
-        }
-
-        static void Menu (Customer UserLogged)
-        {
-            if (UserLogged != null)
-            {
-                string optionSelected = String.Empty;
-
-                do
-                {
-                    Console.WriteLine("Menú de Usuario: ");
-                    Console.WriteLine("1. Consultar Saldo Actual ");
-                    Console.WriteLine("2. Retiro de Dinero ");
-                    Console.WriteLine("3. Depositar Dinero");
-                    Console.WriteLine("4. Cambiar Contraseña ");
-                    Console.WriteLine("5. Cerrar Sesión");
-                    Console.Write("Seleccione la opción deseada: ");
-                    optionSelected = Console.ReadLine();
-
-                    switch (optionSelected)
-                    {
-                        case "1":
-                            Console.WriteLine($"Su saldo actual es: {UserLogged.CheckMoney()}");
-                            break;
-                        case "2":
-                            Console.WriteLine($"Cuanto dinero desea retirar: ");
-                            string moneyToWithdrawn = Console.ReadLine();
-                            UserLogged.RemoveMoney(Convert.ToDecimal(moneyToWithdrawn));
-                            Console.WriteLine("Por favor retire su dinero");
-                            break;
-                        case "3":
-                            Console.WriteLine($"Cuanto dinero desea depositar: ");
-                            string moneyToConsign = Console.ReadLine();
-                            UserLogged.AddMoney(Convert.ToDecimal(moneyToConsign));
-                            Console.WriteLine("Su dinero ha sido consignado");
-                            break;
-                        case "4":
-                            Console.WriteLine($"Ingrese su nueva contraseña: ");
-                            string newPassword = Console.ReadLine();
-                            UserLogged.ChangePassword(newPassword);
-                            Console.WriteLine("Su contraseña ha sido actualizada");
-                            break;
-                        case "5":
-                            Console.WriteLine($" Su sesión ha terminado ");
-                            break;
-                    }
-                } while (optionSelected != "5");
-            }
         }
     }
 }
