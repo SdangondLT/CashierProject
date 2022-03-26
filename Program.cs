@@ -8,7 +8,11 @@ namespace cashierProject
         static void Main(string[] args)
         {
             ATM atm = ATMBankTech();
-            atm.Menu();
+            do
+            {
+                atm.Menu();
+            } 
+            while (true);            
         }
 
         static Bank BankTech()
@@ -16,7 +20,7 @@ namespace cashierProject
             Bank banktech = new Bank(10, "Bank Tech", AccountOfUsers(), FillUsers());
             return banktech;
         }
-        //public ATM(int idATM, string descriptionATM, string status, Bank bank)
+       
         static ATM ATMBankTech()
         {
             ATM ATMBankTech = new ATM(45, "Cajero 24 horas de Bank Tech", "active", BankTech());

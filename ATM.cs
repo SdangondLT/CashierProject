@@ -52,12 +52,10 @@ namespace cashierProject
 
                 do
                 {
-                    Console.WriteLine("\n************************************************");
                     Console.WriteLine($"Bienvenido a {bank.name}");
                     Console.WriteLine("\n************************************************");
                     Console.WriteLine("\n************************************************");
                     Console.WriteLine("Opciones Bancarias: ");
-                    Console.WriteLine("\n************************************************");
                     Console.WriteLine("\n************************************************");
                     Console.WriteLine("1. Consultar Saldo Actual ");
                     Console.WriteLine("2. Retiro de Dinero ");
@@ -94,6 +92,7 @@ namespace cashierProject
                             Console.WriteLine($" Su sesión ha terminado ");
                             break;
                     }
+                    
                 } while (optionSelected != "5");
             }
         }

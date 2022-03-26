@@ -62,8 +62,7 @@ namespace cashierProject
             Account accountFound = accounts.Find(item => item.id == idAccount);
             int idUserOfAccountFound = accountFound.idUser;
             User userFound = users.Find(item => item.idUser == idUserOfAccountFound);
-            string passwordOfUserFound = userFound.password;
-            passwordOfUserFound = newPassword;
+            userFound.password = newPassword;
         }
     }
 }
