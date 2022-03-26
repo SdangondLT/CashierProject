@@ -70,7 +70,8 @@ namespace cashierProject
                     Console.WriteLine("2. Retiro de Dinero ");
                     Console.WriteLine("3. Depositar Dinero");
                     Console.WriteLine("4. Cambiar Contraseña ");
-                    Console.WriteLine("5. Cerrar Sesión");
+                    Console.WriteLine("5. Revision de transacciones");
+                    Console.WriteLine("6. Cerrar Sesión");
                     Console.Write("Seleccione la opción deseada: ");
                     optionSelected = Console.ReadLine();
 
@@ -98,11 +99,15 @@ namespace cashierProject
                             Console.WriteLine("Su contraseña ha sido actualizada");
                             break;
                         case "5":
+                            Console.WriteLine($" Revision de transacciones ");
+                            bank.ShowTransactions(idAccountReceived);
+                            break;
+                        case "6":
                             Console.WriteLine($" Su sesión ha terminado ");
                             break;
                     }
                     
-                } while (optionSelected != "5");
+                } while (optionSelected != "6");
             }
         }
     }

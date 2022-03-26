@@ -8,10 +8,10 @@ namespace cashierProject
 {
     internal class Transactions
     {
-        private int id { get; set; }
-        private int idAccount { get; set; }
-        private string description { get; set; }
-        private DateTime dateOfTransactions  { get; set; }
+        public int id { get; set; }
+        public int idAccount { get; set; }
+        public string description { get; set; }
+        public DateTime dateOfTransactions  { get; set; }
 
         public Transactions(int idTransaction, int idAccount, string description, DateTime date)
         {
