@@ -23,11 +23,20 @@ namespace cashierProject
         }
 
         public bool Login(int idAccountReceived, string password)
-        {
+        {            
             bool userValidated = bank.ValidateUser(idAccountReceived, password);
 
             if (userValidated == true)
-            {
+            { 
+                if(password == "0000")
+                {
+                    Console.Write("Por favor ingrese su nueva clave para ser actualizada: ");
+                    string newPassword = Console.ReadLine();
+
+                    bank.ChangePassword(idAccountReceived, newPassword);
+                    Console.WriteLine("Su clave ha sido actualizada exitosamente");
+                    
+                }
 
                 return true;  
 
