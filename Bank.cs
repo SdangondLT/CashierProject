@@ -10,13 +10,15 @@ namespace cashierProject
     {
         public int id { get; set; }
         public string name { get; set; }
+        public List<Transactions> idTransaction { get; set; }
         public List<Account> accounts { get; set; }
         public List<User> users { get; set; }
 
-        public Bank(int idBank, string nameBank, List<Account> accounts, List<User> users)
+        public Bank(int idBank, string nameBank, List<Transactions> idTransaction, List<Account> accounts, List<User> users)
         {
             this.id = idBank;
             this.name = nameBank;
+            this.idTransaction = idTransaction;
             this.accounts = accounts;
             this.users = users;
         }

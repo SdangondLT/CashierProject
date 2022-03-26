@@ -17,7 +17,7 @@ namespace cashierProject
 
         static Bank BankTech()
         {
-            Bank banktech = new Bank(10, "Bank Tech", AccountOfUsers(), FillUsers());
+            Bank banktech = new Bank(10, "Bank Tech", Transactions(), AccountOfUsers(), FillUsers());
             return banktech;
         }
        
@@ -25,6 +25,12 @@ namespace cashierProject
         {
             ATM ATMBankTech = new ATM(45, "Cajero 24 horas de Bank Tech", "active", BankTech());
             return ATMBankTech;
+        }
+       
+        static List<Transactions> Transactions()
+        {
+            List<Transactions> transaction = new List<Transactions>();
+            return transaction;
         }
         static List<User> FillUsers()
         {
