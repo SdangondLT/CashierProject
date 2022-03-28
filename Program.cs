@@ -67,7 +67,7 @@ namespace cashierProject
         {
             List<Account> listAccount = new List<Account>();
 
-            Account accountOne = new Account(1234, "current", "active", 4005, 1);
+            Account accountOne = new Account(1234, "current", "active", 4000, 1);
             Account accountTwo = new Account(5678, "savings", "active", 2505, 2);
             Account accountThree = new Account(9874, "savings", "inactive", 8005, 3);
             Account accountFour = new Account(5632, "savings", "active", 7005, 4);

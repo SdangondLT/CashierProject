@@ -14,11 +14,11 @@ namespace cashierProject
         public List<Account> accounts { get; set; }
         public List<User> users { get; set; }
 
-        public Bank(int idBank, string nameBank, List<Transactions> listTransaction, List<Account> accounts, List<User> users)
+        public Bank()
         {
-            this.id = idBank;
-            this.name = nameBank;
-            this.listTransaction = listTransaction;
+            //this.id = idBank;
+            //this.name = nameBank;
+            //this.listTransaction = listTransaction;
             this.accounts = accounts;
             this.users = users;
         }

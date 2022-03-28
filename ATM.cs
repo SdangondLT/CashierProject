@@ -61,23 +61,25 @@ namespace cashierProject
 
                 do
                 {
-                    Console.WriteLine($"Bienvenido a {bank.name}");
                     Console.WriteLine("\n************************************************");
+                    Console.WriteLine($"                Bienvenido a {bank.name}");
                     Console.WriteLine("\n************************************************");
-                    Console.WriteLine("Opciones Bancarias: ");
+                    Console.WriteLine("  Opciones Bancarias: ");
                     Console.WriteLine("\n************************************************");
-                    Console.WriteLine("1. Consultar Saldo Actual ");
-                    Console.WriteLine("2. Retiro de Dinero ");
-                    Console.WriteLine("3. Depositar Dinero");
-                    Console.WriteLine("4. Cambiar Contraseña ");
-                    Console.WriteLine("5. Revision de transacciones");
-                    Console.WriteLine("6. Cerrar Sesión");
-                    Console.Write("Seleccione la opción deseada: ");
+                    Console.WriteLine("  1. Consultar Saldo Actual ");
+                    Console.WriteLine("  2. Retiro de Dinero ");
+                    Console.WriteLine("  3. Depositar Dinero");
+                    Console.WriteLine("  4. Cambiar Contraseña ");
+                    Console.WriteLine("  5. Revision de transacciones");
+                    Console.WriteLine("  6. Cerrar Sesión");
+                    Console.WriteLine("\n************************************************");
+                    Console.Write(" Seleccione la opción deseada: ");
                     optionSelected = Console.ReadLine();
 
                     switch (optionSelected)
                     {
                         case "1":
+                            Console.WriteLine("\n************************************************");
                             Console.WriteLine($"Su saldo actual es: {bank.CurrentMoney(idAccountReceived)}");
                             break;
                         case "2":
